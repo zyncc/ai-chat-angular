@@ -1,0 +1,10 @@
+{
+  "/api": {
+    "target": "https://zyncai.vercel.app",
+    "secure": false,
+    "changeOrigin": true,
+    "pathRewrite": {
+      "^/api": "/api"
+    }
+  }
+}
