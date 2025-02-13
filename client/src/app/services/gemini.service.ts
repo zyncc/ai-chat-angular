@@ -17,13 +17,12 @@ export class GeminiService {
     const res = this.http
       .post<{ response: string }>(this.apiUrl, body, { headers })
       .pipe(
-        map((res) => res.response), // Extracting just the response string
+        map((res) => res.response),
         catchError((error) => {
           console.error('Error from API:', error);
           return throwError(() => new Error('Failed to fetch data from API'));
         })
       );
-    console.log('RESPONSE:', res);
     return res;
   }
 }

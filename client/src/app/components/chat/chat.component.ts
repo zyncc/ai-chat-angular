@@ -30,10 +30,8 @@ export class ChatComponent {
 
   sendMessage() {
     if (!this.userInput.trim()) return;
-
     this.messages.push({ text: this.userInput, isUser: true });
     this.isLoading = true;
-
     this.geminiService.getChatResponse(this.userInput).subscribe(
       (response: string) => {
         this.isLoading = false;
@@ -49,7 +47,6 @@ export class ChatComponent {
         this.scrollToBottom();
       }
     );
-
     this.userInput = '';
     this.scrollToBottom();
   }

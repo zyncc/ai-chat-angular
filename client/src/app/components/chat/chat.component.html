@@ -1,13 +1,23 @@
 <div class="chat-container">
   <div #messageContainer class="messages">
-    <div *ngFor="let message of messages" [ngClass]="{ 'user-message': message.isUser, 'bot-message': !message.isUser }">
+    <div
+      *ngFor="let message of messages"
+      [ngClass]="{
+        'user-message': message.isUser,
+        'bot-message': !message.isUser
+      }"
+    >
       {{ message.text }}
     </div>
-
     <div *ngIf="isLoading" class="loading">Typing...</div>
   </div>
   <div class="input-container">
-    <input type="text" [(ngModel)]="userInput" placeholder="Type your message..." (keyup.enter)="sendMessage()" />
+    <input
+      type="text"
+      [(ngModel)]="userInput"
+      placeholder="Type your message..."
+      (keyup.enter)="sendMessage()"
+    />
     <button (click)="sendMessage()">Send</button>
   </div>
 </div>
